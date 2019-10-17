@@ -1,0 +1,102 @@
+{# Settings #}
+
+{% set mainNavActive_1 = "shortcodes" %}
+
+{% set title = "Smart Navigation - Top-Right" %}
+
+{% include "partials/head.njk" %}
+{% include "partials/core-fonts.njk" %}
+{% include "partials/core-css.njk" %}
+<link rel="stylesheet" href="{{ root }}assets/vendor/bootstrap/offcanvas.css">
+{% include "partials/core-icons.njk" %}
+{% include "partials/css/css-dzsparallaxer.njk" %}
+<link rel="stylesheet" href="{{ root }}assets/vendor/animate.css">
+<link rel="stylesheet" href="{{ root }}assets/vendor/hamburgers/hamburgers.min.css">
+<link rel="stylesheet" href="{{ root }}assets/vendor/hs-megamenu/src/hs.megamenu.css">
+<link rel="stylesheet" href="{{ root }}assets/vendor/slick-carousel/slick/slick.css">
+<link rel="stylesheet" href="{{ root }}assets/vendor/fancybox/jquery.fancybox.css">
+
+{% include "partials/css/css-unify.njk" %}
+{% include "partials/css/css-custom.njk" %}
+</head>
+
+<body>
+  <main>
+    {% include "partials/blocks/headers/smart-top-right.njk" %}
+
+    {% set promoCustomClasses = "g-min-height-100vh g-flex-middle" %}
+    {% set promoCustomClassesInner = "g-flex-middle-item" %}
+    {% include "partials/blocks/promo/promo-block-v1.njk" %}
+
+    {% include "partials/blocks/content/about/about-block-v1.njk" %}
+
+    {% include "partials/blocks/content/icons-blocks/icons-block-v1.njk" %}
+
+    {% include "partials/blocks/content/mockup-blocks/mockup-block-v1.njk" %}
+
+    {% include "partials/blocks/content/grid-blocks/blog-grid-block-v1.njk" %}
+
+    {% include "partials/blocks/content/projects-blocks/projects-block-v1.njk" %}
+
+    {% include "partials/blocks/cta/cta-main.njk" %}
+
+    {% include "partials/blocks/footers/footer-main.njk" %}
+    {% include "partials/blocks/footers/copyright-footer-main.njk" %}
+    {% include "partials/blocks/go-to-top/go-to-top-1.njk" %}
+  </main>
+
+  {% include "partials/core-js.njk" %}
+  <script src="{{ root }}assets/vendor/bootstrap/offcanvas.js"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="{{ root }}assets/vendor/appear.js"></script>
+  {% include "partials/js/js-dzsparallaxer.njk" %}
+  <script src="{{ root }}assets/vendor/masonry/dist/masonry.pkgd.min.js"></script>
+  <script src="{{ root }}assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="{{ root }}assets/vendor/slick-carousel/slick/slick.js"></script>
+  <script src="{{ root }}assets/vendor/fancybox/jquery.fancybox.min.js"></script>
+
+  <!-- JS Unify -->
+  <script src="{{ root }}assets/js/hs.core.js"></script>
+
+  <script src="{{ root }}assets/js/components/hs.smart-menu.js"></script>
+  <script src="{{ root }}assets/js/helpers/hs.hamburgers.js"></script>
+
+  <script src="{{ root }}assets/js/components/hs.popup.js"></script>
+  <script src="{{ root }}assets/js/components/hs.carousel.js"></script>
+
+  <script src="{{ root }}assets/js/components/hs.go-to.js"></script>
+
+  <!-- JS Custom -->
+  <script src="{{ root }}assets/js/custom.js"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // initialization of go to
+      $.HSCore.components.HSGoTo.init('.js-go-to');
+
+      // initialization of carousel
+      $.HSCore.components.HSCarousel.init('.js-carousel');
+
+      // initialization of masonry
+      $('.masonry-grid').imagesLoaded().then(function () {
+        $('.masonry-grid').masonry({
+          columnWidth: '.masonry-grid-sizer',
+          itemSelector: '.masonry-grid-item',
+          percentPosition: true
+        });
+      });
+
+      // initialization of popups
+      $.HSCore.components.HSPopup.init('.js-fancybox');
+    });
+
+    $(window).on('load', function () {
+      // initialization of header
+      $.HSCore.helpers.HSHamburgers.init('.hamburger');
+      $.HSCore.components.HSSmartMenu.init($('.js-smart-menu'));
+    });
+  </script>
+</body>
+</html>

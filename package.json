@@ -1,0 +1,16 @@
+{
+  "name": "allergan",
+  "version": "1.0.0",
+  "description": "A;;ergan Microsite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js"
+  },
+  "author": "Joe McCorison <jmccorison@murraygroup.ie>",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "server-static": "^2.0.5"
+  }
+}
