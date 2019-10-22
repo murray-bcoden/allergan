@@ -3,6 +3,6 @@ const server = jsonServer.create()
 const router = jsonServer.router(`${__dirname}/data/results.json`)
 
 server.use(router)
-server.listen(3000, () => {
+server.listen(process.env.PORT, () => {
     console.log('JSON Server is running')
 })
