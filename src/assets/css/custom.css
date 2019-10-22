@@ -1,1 +1,108 @@
 /* Add here all your css styles (customizations) */
+
+.job-panel{
+  height: 100%;
+    display: grid;
+    justify-content: space-between;
+}
+.job-details{
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* Main Colors */
+.g-bg-main {
+    background-color: #fff !important;
+  }
+  
+/* Main Secondary */
+.g-bg-secondary {
+    background-color: #fafafa !important;
+  }
+
+  /* Color Green */
+.g-bg-green {
+    background-color: #96c547 !important;
+  }
+.g-color-green {
+   color: #96c547 !important;
+   border-color: #96c547 !important;
+  }
+
+.list-inline-item a.g-color-green:hover {
+    background-color: #96c547 !important;
+    border-color: #96c547 !important;
+   }
+
+   .list-inline-item a.g-color-green:hover {
+    background-color: #96c547 !important;
+    border-color: #96c547 !important;
+   }
+
+  /* Color Blue */
+.g-bg-blue {
+    background-color: #2C5697 !important;
+  }
+.g-color-blue {
+    color: #2C5697 !important;
+  }
+
+a.g-color-blue{
+  color: #3398dc;
+}
+
+/* Font overrides */
+h1, h2, h3, h4, h5, h6, p, body, div{
+    font-family: Arial, sans-serif;
+}
+
+p, body{
+    color: #565656;
+}
+
+::selection {
+    color: white;
+    background-color: #96c547;
+}
+
+h1, h2{
+    color:  #2C5697; 
+}
+
+/* Buttons */
+
+.u-btn-primary{
+    background-color: #96c547;
+}
+.u-btn-primary:hover{
+    background-color: #aee64e;
+    outline: none;
+    border-color: #aee64e;
+}
+
+.u-btn-secondary{
+    background-color: none;
+    color: white;
+    border-color: white
+}
+.u-btn-secondary:hover{
+    background-color: #aee64e;
+    color: white;
+    outline: none;
+    border-color: #aee64e;
+}
+
+.u-go-to-v1:hover{
+    background-color: #aee64e;
+}
+
+.u-btn-outline-blue {
+  color:  #2C5697; 
+  outline-color: #2C5697;
+}
+
+.u-btn-outline-blue:hover{
+  background-color:  #2C5697; 
+  outline-color: #2C5697;
+  border-color: #2C5697
+}
