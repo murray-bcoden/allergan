@@ -1,10 +1,12 @@
+require('dotenv').config()
+
 const fs = require('fs')
 const { promisify } = require('util')
 const rp = require('request-promise')
 const $ = require('cheerio')
-const url = 'https://agn.referrals.selectminds.com/jobs/search/4620880'
+const url = process.env.URL
 
-const webhook_url = 'https://hooks.slack.com/services/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'
+const webhook_url = process.env.SLACK_WEBHOOK
 const slack = require('slack-notify')(webhook_url);
 
 const log = function (error) {
