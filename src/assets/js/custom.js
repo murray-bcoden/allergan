@@ -1,2 +1,3 @@
 // custom js goes here
-console.log('test');
+// get data from api
+// display in listings

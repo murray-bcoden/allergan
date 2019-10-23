@@ -33,6 +33,8 @@ const jobs = function (html, results) {
     const link = '.job_link'
     const category = '.category'
     const description = '.jlr_description'
+    const hotFlag = '.hot_flg'
+    const newFlag = '.new_flg'
 
     for (let i=0; i < jobs.children().length; i++) {
         //
@@ -50,10 +52,19 @@ const jobs = function (html, results) {
         // description
         descriptionText = parseLines($(description, jobs.children()[i]).html()).replace('Job Description:', '').trim()
 
+        // hot flag
+        const isHot = ($(hotFlag, jobs.children()[i]).length > 0)
+
+        // new flag
+        const isNew = ($(newFlag, jobs.children()[i]).length > 0)
+
         results.push({
+            title: linkText,
             url: linkUrl,
             category: categoryText,
-            description: descriptionText
+            description: descriptionText,
+            isNewFlag: isNew,
+            isHotFlag: isHot
         })
     }
 
