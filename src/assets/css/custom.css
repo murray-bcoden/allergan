@@ -72,8 +72,9 @@ h1, h2{
 /* Buttons */
 
 .u-btn-primary{
-    background-color: #96c547;
+  background-color: #96c547;
 }
+
 .u-btn-primary:hover{
     background-color: #aee64e;
     outline: none;
