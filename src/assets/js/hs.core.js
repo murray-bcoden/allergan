@@ -240,7 +240,11 @@
      * @var
      */
     settings: {
-      rtl: false
+      rtl: false,
+      jobsApi: 'http://localhost:3000'
+    },
+    data: {
+      jobs: []
     }
 
   };
