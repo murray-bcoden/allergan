@@ -1,24 +1,64 @@
 $(document).ready(function() {
     var _limit = 6;
-    var page = 1;
     var apiBase = $.HSCore.settings.jobsApi;
     var path = '/jobs'
-    var params = '_limit=' + _limit;
-    var url = apiBase + path + '?' + params ;
+    var total = 0;
+    var _currentPage = 1;
+    var _totalRecords = 0;
 
-    var jqxhr = $.get(url, function(data) {
-        console.log(data);
-        for (var i = 0; i < data.length; i++) {
-            $('#jobs-section > .container > .row')
-                .append(column(data[i]));
-        }
-    })
-    .fail(function(error) {
-        console.log(error)
-    })
-    .always(function() {
-       console.log('loading');
+    var getRecords = function(callback, page = 1, limit = 6) {
+        var loadMoreBtn = $('#button-jobs-load');
+        if (callback)
+            callback();
+
+        // check to see if we are on the last one
+        if (_totalRecords > 0 && (page+1) * _limit > _totalRecords)
+            loadMoreBtn.hide();
+
+        var params = {
+            '_limit': _limit,
+            '_page': _currentPage
+        };
+
+        var url = apiBase + path + '?' + $.param( params );
+
+        var jqxhr = $.get(url, function(data, textStatus, jqHR) {
+            // grab total pages
+            _totalRecords = parseInt(jqHR.getResponseHeader('x-total-count'));
+
+            // build results
+            for (var i = 0; i < data.length; i++) {
+                $('#jobs-section > .container > .row')
+                    .append(column(data[i]));
+            }
+
+            if (callback)
+                callback();
+        })
+        .fail(function(error) {
+            console.log(error)
+        })
+        .always(function() {
+            console.log('loading');
+        });
+    };
+
+    // toggle button loading
+    $('#button-jobs-load').click(function(event) {
+        var _self = $(this);
+        // disable link on click
+        event.preventDefault();
+        var toggleLoader = function () {
+            _self.find('i').toggleClass('fa-check-circle');
+            _self.find('i').toggleClass('fa-refresh');
+            _self.find('i').toggleClass('fa-spin');
+        };
+
+        getRecords(toggleLoader, _currentPage++, _limit);
     });
+
+    // onload get intial settings
+    getRecords();
 });
 
 var column = function(job) {
