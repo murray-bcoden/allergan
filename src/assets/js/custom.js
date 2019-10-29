@@ -77,6 +77,7 @@ $(document).ready(function() {
         getRecords(toggleLoader, ++_currentPage, _limit, _filters);
     });
 
+    // filtering logic
     $('a[data-filter]').click(function(event) {
 
         // get the filter and add to the results page
@@ -137,7 +138,7 @@ var column = function(job) {
 
     headerLink.appendTo(header).appendTo(article);
 
-    var intro = $('<p />').text(job.description);
+    var intro = $('<p />').html(job.description);
    intro.appendTo(article);
 
     var details = $('<div />').addClass('job-details');
