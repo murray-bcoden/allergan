@@ -108,7 +108,6 @@ $(document).ready(function() {
         } else if ( ! _filters.hasOwnProperty(filter[0]) ) {
             _filters[filter[0]] = filter[1];
         } else {
-            $('a[data-filter^="category"]').not(_self).removeClass('g-blue-active');
             delete _filters[filter[0]];
         }
 
