@@ -23,9 +23,9 @@ $(document).ready(function() {
 
     var getRecords = function(callback, page = 1, limit = 6, filters = undefined) {
         var loadMoreBtn = $('#button-jobs-load');
+
         if (callback)
             callback();
-
 
         var params = {
             '_limit': limit,
@@ -61,7 +61,13 @@ $(document).ready(function() {
                 callback();
         })
         .fail(function(error) {
-            console.log(error)
+            $('#jobs-section > .container > .row')
+                .append('<div class="g-color-lightred" style="margin: 0 auto">Failed to get results, please refresh the page to try again.</div>');
+            loadMoreBtn.hide();
+            $('#jobs-section p').hide();
+            $('a[data-filter]').hide();
+
+            console.log(error);
         })
         .always(function() {
             console.log('loading');
@@ -146,7 +152,7 @@ var column = function(job) {
 
     if (job.isHotFlag) {
         var isHot = $('<a />')
-            .addClass('u-tags-v1 g-font-size-12 g-color-blue g-brd-around g-brd-blue g-bg-blue--hover g-color-white--hover rounded g-py-3 g-px-8')
+            .addClass('u-tags-v1 g-font-size-12 g-color-orange g-brd-around g-brd-orange g-bg-orange--hover g-color-white--hover rounded g-py-3 g-px-8')
             .text('Hot');
         attributes.append(inlineItem.clone().append(isHot));
     }
