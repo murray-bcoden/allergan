@@ -91,13 +91,23 @@ $(document).ready(function() {
         if (filter[0] === 'clear') {
             $('a[data-filter]').removeClass('g-blue-active');
             _filters = {}
-        } else if (! _filters.hasOwnProperty(filter[0]) && filter[0] === 'category') {
+        } else if (filter[0] === 'category') {
+
+            // clear previous
+            var previous = _filters[filter[0]];
             $('a[data-filter^="clear"]').removeClass('g-blue-active');
             $('a[data-filter^="category"]').not(_self).removeClass('g-blue-active');
-            _filters[filter[0]] = filter[1];
+
+            if (previous === filter[1]) {
+                delete _filters[filter[0]];
+            } else {
+                _filters[filter[0]] = filter[1];
+            }
+
         } else if ( ! _filters.hasOwnProperty(filter[0]) ) {
             _filters[filter[0]] = filter[1];
         } else {
+            $('a[data-filter^="category"]').not(_self).removeClass('g-blue-active');
             delete _filters[filter[0]];
         }
 
