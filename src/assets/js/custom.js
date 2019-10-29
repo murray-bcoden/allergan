@@ -91,9 +91,11 @@ $(document).ready(function() {
         if (filter[0] === 'clear') {
             $('a[data-filter]').removeClass('g-blue-active');
             _filters = {}
-        } else if ( ! _filters.hasOwnProperty(filter[0]) || filter[0] === 'category') {
+        } else if (! _filters.hasOwnProperty(filter[0]) && filter[0] === 'category') {
             $('a[data-filter^="clear"]').removeClass('g-blue-active');
-            $('a[data-filter^="category"]').removeClass('g-blue-active');
+            $('a[data-filter^="category"]').not(_self).removeClass('g-blue-active');
+            _filters[filter[0]] = filter[1];
+        } else if ( ! _filters.hasOwnProperty(filter[0]) ) {
             _filters[filter[0]] = filter[1];
         } else {
             delete _filters[filter[0]];
