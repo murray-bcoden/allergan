@@ -26,9 +26,6 @@ $(document).ready(function() {
         if (callback)
             callback();
 
-        // check to see if we are on the last one
-        if (_totalRecords > 0 && (page * _limit) > _totalRecords)
-            loadMoreBtn.hide();
 
         var params = {
             '_limit': limit,
@@ -45,7 +42,12 @@ $(document).ready(function() {
             // grab total pages
             _totalRecords = parseInt(jqHR.getResponseHeader('x-total-count'));
 
-            // build results
+            // check to see if we are on the last one
+            if (_totalRecords < 1 || _totalRecords > 0 && (page * _limit) > _totalRecords) {
+                loadMoreBtn.hide();
+            } else {
+                loadMoreBtn.show();
+            }
 
             if (page < 2)
                 $('#jobs-section > .container > .row').empty();
@@ -76,6 +78,7 @@ $(document).ready(function() {
     });
 
     $('a[data-filter]').click(function(event) {
+
         // get the filter and add to the results page
         var _self = $(this);
 
@@ -86,15 +89,22 @@ $(document).ready(function() {
         var filter = _self.attr('data-filter').split('=');
 
         if (filter[0] === 'clear') {
+            $('a[data-filter]').removeClass('g-blue-active');
             _filters = {}
         } else if ( ! _filters.hasOwnProperty(filter[0]) || filter[0] === 'category') {
+            $('a[data-filter^="clear"]').removeClass('g-blue-active');
+            $('a[data-filter^="category"]').removeClass('g-blue-active');
             _filters[filter[0]] = filter[1];
         } else {
             delete _filters[filter[0]];
         }
 
+        _currentPage = 1;
         // filter records, always start at 1
-        getRecords(toggleLoader, 1, _limit, _filters);
+        getRecords(toggleLoader, _currentPage, _limit, _filters);
+
+        // toggle active
+        _self.toggleClass('g-blue-active');
     });
 
     // onload get initial settings
