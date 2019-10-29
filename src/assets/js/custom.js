@@ -5,20 +5,39 @@ $(document).ready(function() {
     var total = 0;
     var _currentPage = 1;
     var _totalRecords = 0;
+    var _filters = {}
 
-    var getRecords = function(callback, page = 1, limit = 6) {
+    // utilities
+    function extendObject(obj, src) {
+        for (var key in src) {
+            if (src.hasOwnProperty(key)) obj[key] = src[key];
+        }
+        return obj;
+    }
+
+    var toggleLoader = function () {
+        $('#button-jobs-load').find('i').toggleClass('fa-check-circle');
+        $('#button-jobs-load').find('i').toggleClass('fa-refresh');
+        $('#button-jobs-load').find('i').toggleClass('fa-spin');
+    };
+
+    var getRecords = function(callback, page = 1, limit = 6, filters = undefined) {
         var loadMoreBtn = $('#button-jobs-load');
         if (callback)
             callback();
 
         // check to see if we are on the last one
-        if (_totalRecords > 0 && (page+1) * _limit > _totalRecords)
+        if (_totalRecords > 0 && (page * _limit) > _totalRecords)
             loadMoreBtn.hide();
 
         var params = {
-            '_limit': _limit,
-            '_page': _currentPage
+            '_limit': limit,
+            '_page': page
         };
+
+        // check for filters
+        if ( filters )
+            params = extendObject(params, filters);
 
         var url = apiBase + path + '?' + $.param( params );
 
@@ -27,6 +46,10 @@ $(document).ready(function() {
             _totalRecords = parseInt(jqHR.getResponseHeader('x-total-count'));
 
             // build results
+
+            if (page < 2)
+                $('#jobs-section > .container > .row').empty();
+
             for (var i = 0; i < data.length; i++) {
                 $('#jobs-section > .container > .row')
                     .append(column(data[i]));
@@ -45,19 +68,36 @@ $(document).ready(function() {
 
     // toggle button loading
     $('#button-jobs-load').click(function(event) {
-        var _self = $(this);
         // disable link on click
         event.preventDefault();
-        var toggleLoader = function () {
-            _self.find('i').toggleClass('fa-check-circle');
-            _self.find('i').toggleClass('fa-refresh');
-            _self.find('i').toggleClass('fa-spin');
-        };
 
-        getRecords(toggleLoader, _currentPage++, _limit);
+        // get current records
+        getRecords(toggleLoader, ++_currentPage, _limit, _filters);
     });
 
-    // onload get intial settings
+    $('a[data-filter]').click(function(event) {
+        // get the filter and add to the results page
+        var _self = $(this);
+
+        // disable link on click
+        event.preventDefault();
+
+        // set up filters
+        var filter = _self.attr('data-filter').split('=');
+
+        if (filter[0] === 'clear') {
+            _filters = {}
+        } else if ( ! _filters.hasOwnProperty(filter[0]) || filter[0] === 'category') {
+            _filters[filter[0]] = filter[1];
+        } else {
+            delete _filters[filter[0]];
+        }
+
+        // filter records, always start at 1
+        getRecords(toggleLoader, 1, _limit, _filters);
+    });
+
+    // onload get initial settings
     getRecords();
 });
 
