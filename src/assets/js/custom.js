@@ -57,10 +57,15 @@ $(document).ready(function() {
                     .append(column(data[i]));
             }
 
+            // toggle loader
             if (callback)
                 callback();
         })
         .fail(function(error) {
+            // reset loader
+            if (callback)
+                callback();
+
             $('#jobs-section > .container > .row')
                 .append('<div class="g-color-lightred" style="margin: 0 auto">Failed to get results, please refresh the page to try again.</div>');
             loadMoreBtn.hide();
