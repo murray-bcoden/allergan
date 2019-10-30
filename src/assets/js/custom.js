@@ -72,7 +72,6 @@ $(document).ready(function() {
             $('#jobs-section p').hide();
             $('a[data-filter]').hide();
 
-            console.log(error);
         })
         .always(function() {
             console.log('loading');

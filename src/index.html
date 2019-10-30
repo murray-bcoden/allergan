@@ -38,8 +38,12 @@
     <link rel="stylesheet" href="assets/css/unify-components.css">
     <link rel="stylesheet" href="assets/css/unify-globals.css">
 
+    <!-- vendor -->
+    <link rel="stylesheet" href="assets/css/cookies.css">
+
     <!-- CSS Customization -->
     <link rel="stylesheet" href="assets/css/custom.css">
+
 </head>
 
 <body>
@@ -132,12 +136,6 @@
                     <p class="g-font-size-16">Allergan is spread across four sites in Ireland. We have three
                         manufacturing facilities in Westport, Co. Mayo, Dublin and Galway, as well as an office in
                         Dublin servicing our International Supply Chain and Support Functions.</p>
-                    <p class="g-font-size-16">Allergan is a company that will inspire you to aim high with your
-                        ambition. Where you can build bridges all over the world. Where you can power ideas that drive
-                        change. And where you will act fast and drive results for customers and patients. Allergan is a
-                        company that will inspire you to aim high with your ambition. Where you can build bridges all
-                        over the world. Where you can power ideas that drive change. And where you will act fast and
-                        drive results for customers and patients.</p>
                 </div>
             </div>
             <!-- End Image, Text Block -->
@@ -290,10 +288,10 @@
                             Power your bold future</h3>
                         <p class="g-font-size-16">Allergan recognizes the importance of our people and are committed to
                             providing a suite of compensation and benefits programmes that recognise and reward
-                            individual performance and provide our employee with flexibility and support to help meet
+                            individual performance and provide our employees with the flexibility and support to help meet
                             the demands of managing their professional and personal wellbeing. This we call “Total
                             Rewards”.</p>
-                        <p class="g-font-size-16">Allergan in Ireland is committed to a health working life balance for
+                        <p class="g-font-size-16">Allergan in Ireland is committed to a healthy work life balance for
                             all its employees and has put a number of initiatives in place to help employees manage
                             their workplace responsibilities alongside their personal and family needs.</p>
 
@@ -372,17 +370,17 @@
 
                         <ul class="list-unstyled g-ml-auto">
                             <li><a class="u-link-v5 g-color-green g-color-white--hover g-font-size-16 g-font-weight-600"
-                                   href="https://www.lookwest.ie/life/mayo/">lookwest.ie
+                                   href="https://www.lookwest.ie/life/mayo/" target="_blank">lookwest.ie
                                 <i class="fa fa-angle-right g-color-white g-pl-15"></i></a>
                             </li>
 
                             <li><a class="u-link-v5 g-color-green g-color-white--hover g-font-size-16 g-font-weight-600"
-                                   href="https://www.destinationwestport.com/">destinationwestport.com
+                                   href="https://www.destinationwestport.com/" target="_blank">destinationwestport.com
                                 <i class="fa fa-angle-right g-color-white g-pl-15"></i></a>
                             </li>
 
                             <li><a class="u-link-v5 g-color-green g-color-white--hover g-font-size-16 g-font-weight-600"
-                                   href="https://www.discoverireland.ie/places-to-go-location/mayo/21">discoverireland.ie
+                                   href="https://www.discoverireland.ie/places-to-go-location/mayo/21" target="_blank">discoverireland.ie
                                 <i class="fa fa-angle-right g-color-white g-pl-15"></i></a>
                             </li>
                         </ul>
@@ -527,8 +525,8 @@
         </div>
 
         <div class="container">
-            <small class="g-font-size-default">2019, All rights reserved.
-            </small>
+            <small class="g-font-size-default">For more information you can contact us by email: thecuttingedge@allergan.com</small><br />
+            <small class="g-font-size-default">&copy; 2019, All rights reserved.</small>
         </div>
 
     </footer>
@@ -580,7 +578,36 @@
 
 <!-- JS Plugins Init. -->
 <script>
+    // set up analytics
+    var tagManager = function() {
+        var scriptTag = document.createElement("script");
+        scriptTag.type = "text/javascript";
+        scriptTag.src = "assets/js/vendor/tagmanager.js";
+        // append to head
+        (document.getElementsByTagName("head")[0] || document.documentElement ).appendChild(scriptTag);
+    };
+
+    // set up analytics
+    var readCookie = function (name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    };
+
+    var intializeAnalytics = function() {
+        if (readCookie('cookieControl') !== null
+            && readCookie('cookieControlPrefs') !== null
+            && readCookie('cookieControlPrefs').indexOf('analytics') !== -1)
+            tagManager(); // need to run this on load as well if cookie exists
+    };
+
     $(document).on('ready', function () {
+        intializeAnalytics();
         // initialization of carousel
         $.HSCore.components.HSCarousel.init('.js-carousel');
 
@@ -610,6 +637,29 @@
 
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialize cookies
+        $('body').ihavecookies({
+            title: "Cookies & Privacy",
+            message: "This website uses cookies to ensure you get the best experience on our website.",
+            cookieTypes: [
+                {
+                    type:'Analytics',
+                    value:'analytics',
+                    description:'Cookies related to site visits, browser types, etc.'
+                }
+            ],
+            link: 'https://www.allergan.ie/en-ie/privacy',
+            onAccept:function() {
+                // add analytics functionality here
+                // refresh page?
+                // add tag manager tags // trigger page view
+
+                // check for cookies
+                intializeAnalytics();
+            },
+            delay: 1000
+        });
     });
 
     $(window).on('load', function () {
@@ -686,6 +736,8 @@
 <script src="assets/js/components/hs.select.js"></script>
 <script src="assets/js/components/hs.modal-window.js"></script>
 <script src="assets/js/components/hs.markup-copy.js"></script>
+<script src="assets/js/vendor/jquery.ihavecookies.min.js"></script>
+
 
 <!-- End Scripts -->
 <!-- End Style Switcher -->
