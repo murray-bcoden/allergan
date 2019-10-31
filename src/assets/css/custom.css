@@ -1,4 +1,7 @@
 /* Add here all your css styles (customizations) */
+#gdpr-cookie-message {
+    z-index: 1000;
+}
 
 .job-panel{
   height: 100%;
