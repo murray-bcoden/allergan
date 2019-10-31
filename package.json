@@ -7,12 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node server.js",
     "api": "node api.js",
-    "scrape": "node scraper/app.js"
+    "scrape": "node scraper/app.js",
+    "optimize": "node optimize.js"
   },
   "author": "Joe McCorison <jmccorison@murraygroup.ie>",
   "license": "ISC",
   "devDependencies": {
     "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "imagemin": "^7.0.0",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "replace-in-file": "^4.2.0",
     "server-static": "^2.0.5"
   },
