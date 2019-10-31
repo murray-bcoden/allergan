@@ -21,7 +21,12 @@ $(document).ready(function() {
         $('#button-jobs-load').find('i').toggleClass('fa-spin');
     };
 
-    var getRecords = function(callback, page = 1, limit = 6, filters = undefined) {
+    var getRecords = function(callback, page, limit, filters) {
+        if (page === undefined)
+            page = 1;
+        if (limit === undefined)
+            limit= 6;
+
         var loadMoreBtn = $('#button-jobs-load');
 
         if (callback)
