@@ -4,7 +4,7 @@ var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 var rect; // used to reference frame bounds
 lib.ssMetadata = [
-		{name:"Quality _ Skyscraper _ v01_atlas_", frames: [[0,264,382,255],[0,0,394,262],[0,521,359,260]]}
+		{name:"Great team _ Skyscraper _ v01_atlas_", frames: [[0,264,382,255],[0,0,394,262],[0,521,359,260]]}
 ];
 
 
@@ -13,21 +13,21 @@ lib.ssMetadata = [
 
 
 (lib.image1 = function() {
-	this.initialize(ss["Quality _ Skyscraper _ v01_atlas_"]);
+	this.initialize(ss["Great team _ Skyscraper _ v01_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.image2 = function() {
-	this.initialize(ss["Quality _ Skyscraper _ v01_atlas_"]);
+	this.initialize(ss["Great team _ Skyscraper _ v01_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.image3 = function() {
-	this.initialize(ss["Quality _ Skyscraper _ v01_atlas_"]);
+	this.initialize(ss["Great team _ Skyscraper _ v01_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
@@ -1716,7 +1716,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Quality _ Skyscraper _ v01_atlas_.jpg", id:"Quality _ Skyscraper _ v01_atlas_"}
+		{src:"images/Great team _ Skyscraper _ v01_atlas_.jpg", id:"Great team _ Skyscraper _ v01_atlas_"}
 	],
 	preloads: []
 };
