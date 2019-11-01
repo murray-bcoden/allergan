@@ -4,7 +4,7 @@ var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 var rect; // used to reference frame bounds
 lib.ssMetadata = [
-		{name:"Test test surf _ Skyscrapers _ v01_atlas_", frames: [[0,0,491,327],[0,329,489,326],[0,657,428,286]]}
+		{name:"Test test surf _ Skyscraper _ v01_atlas_", frames: [[0,0,491,327],[0,329,489,326],[0,657,428,286]]}
 ];
 
 
@@ -13,21 +13,21 @@ lib.ssMetadata = [
 
 
 (lib.Asset1 = function() {
-	this.initialize(ss["Test test surf _ Skyscrapers _ v01_atlas_"]);
+	this.initialize(ss["Test test surf _ Skyscraper _ v01_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Asset3 = function() {
-	this.initialize(ss["Test test surf _ Skyscrapers _ v01_atlas_"]);
+	this.initialize(ss["Test test surf _ Skyscraper _ v01_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Bitmap5 = function() {
-	this.initialize(ss["Test test surf _ Skyscrapers _ v01_atlas_"]);
+	this.initialize(ss["Test test surf _ Skyscraper _ v01_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
@@ -1672,7 +1672,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Test test surf _ Skyscrapers _ v01_atlas_.jpg", id:"Test test surf _ Skyscrapers _ v01_atlas_"}
+		{src:"images/Test test surf _ Skyscraper _ v01_atlas_.jpg", id:"Test test surf _ Skyscraper _ v01_atlas_"}
 	],
 	preloads: []
 };
