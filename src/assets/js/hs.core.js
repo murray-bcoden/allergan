@@ -241,7 +241,7 @@
      */
     settings: {
       rtl: false,
-      jobsApi: 'http://localhost:3000'
+      jobsApi: 'https://api-allergan.stagingtesting.com'
     },
     data: {
       jobs: []
