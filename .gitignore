@@ -92,3 +92,4 @@ typings/
 /scraper/listings/*
 /scraper/data/*
 .idea*
+reports/*
