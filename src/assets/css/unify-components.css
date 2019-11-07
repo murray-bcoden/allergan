@@ -2870,12 +2870,12 @@ body[class*="u-body--header-side"].u-body--header-side-opened .u-header__overlay
 /* Button Primary */
 .u-btn-primary {
   color: #fff;
-  background-color: #6BC8C4;
+  background-color:  #96c547;
 }
 
 .u-btn-primary:hover, .u-btn-primary.active {
-  border-color: #90d6d3;
-  background-color: #90d6d3;
+  border-color: #aee64e;
+  background-color: #aee64e;
 }
 
 .u-btn-primary:hover, .u-btn-primary:focus, .u-btn-primary.active {
@@ -2883,8 +2883,8 @@ body[class*="u-body--header-side"].u-body--header-side-opened .u-header__overlay
 }
 
 .u-btn-primary.g-btn-hover-reset:hover, .u-btn-primary.g-btn-hover-reset.active {
-  background-color: #6BC8C4;
-  border-color: #6BC8C4;
+  background-color:  #96c547;
+  border-color:  #96c547;
 }
 
 .u-btn-primary.u-btn-hover-v1-1 {
@@ -2896,7 +2896,7 @@ body[class*="u-body--header-side"].u-body--header-side-opened .u-header__overlay
 }
 
 .u-btn-primary.u-btn-hover-v1-1:hover {
-  background-color: #6BC8C4;
+  background-color:  #96c547;
   overflow: hidden;
 }
 
