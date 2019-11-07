@@ -183,7 +183,7 @@ var column = function(job) {
     var separator = $('<hr />').addClass('class="g-brd-gray-light-v4 g-mt-20 g-mb-15"');
     var footer = $('<ul />').addClass('list-inline d-flex justify-content-between g-mb-0');
     var cta =  $('<a />')
-        .addClass('u-link-v5 g-font-weight-600 g-color-blue g-color-blue--hover')
+        .addClass('u-btn-blue u-btn-hover-v2-1 g-font-weight-600 g-color-blue g-color-blue--hover')
         .attr('href', job.url)
         .text('See details');
 

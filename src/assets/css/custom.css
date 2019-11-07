@@ -116,3 +116,11 @@ h1, h2{
   outline-color: #2C5697;
   border-color: #2C5697
 }
+
+a.btn.btn-lg.u-btn-blue{
+   display: inline-block;
+}
+
+.u-btn-blue.u-btn-hover-icon:hover i.fa.fa-angle-right.g-ml-7.icon-rotate{
+  transform: rotate(90)!important;
+}
