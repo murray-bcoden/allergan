@@ -2944,11 +2944,11 @@ body[class*="u-body--header-side"].u-body--header-side-opened .u-header__overlay
 }
 
 .u-btn-primary.u-btn-hover-v2-1::after, .u-btn-primary.u-btn-hover-v2-1:hover::after {
-  background-color: #7ecfcb;
+  background-color: #aee64e;
 }
 
 .u-btn-primary.u-btn-hover-v2-1:hover {
-  background-color: #6BC8C4;
+  background-color: #aee64e;
   overflow: hidden;
 }
 
@@ -2957,11 +2957,11 @@ body[class*="u-body--header-side"].u-body--header-side-opened .u-header__overlay
 }
 
 .u-btn-primary.u-btn-hover-v2-2::after, .u-btn-primary.u-btn-hover-v2-2:hover::after {
-  background-color: #7ecfcb;
+  background-color: #aee64e;
 }
 
 .u-btn-primary.u-btn-hover-v2-2:hover {
-  background-color: #6BC8C4;
+  background-color: #aee64e;
   overflow: hidden;
 }
 

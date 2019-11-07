@@ -84,11 +84,26 @@ h1, h2{
   background-color: #96c547;
 }
 
-.u-btn-primary:hover{
-    background-color: #aee64e;
-    outline: none;
-    border-color: #aee64e;
+.u-btn-primary:hover, .u-btn-primary.active, .u-btn-primary.g-btn-hover-reset:hover, .u-btn-primary.g-btn-hover-reset.active  {
+  background-color: #aee64e !important;
+  background: #aee64e !important;
+  outline: none !important;
+  overflow: hidden !important;
+  border-color: #aee64e !important;
 }
+
+.u-btn-primary.u-btn-hover-v2-1::after, .u-btn-primary.u-btn-hover-v2-1:hover::after {
+  background-color: #aee64e !important;
+}
+
+.u-btn-primary.u-btn-hover-v2-1:hover {
+    background-color: #aee64e !important;
+    background: #aee64e !important;
+    outline: none !important;
+    overflow: hidden !important;
+    border-color: #aee64e !important;
+}
+
 
 .u-btn-secondary{
     background-color: none;
