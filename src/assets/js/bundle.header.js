@@ -3238,12 +3238,13 @@ var column = function(job) {
         .appendTo(details);
 
     var separator = $('<hr />').addClass('class="g-brd-gray-light-v4 g-mt-20 g-mb-15"');
-    var footer = $('<ul />').addClass('list-inline d-flex justify-content-between g-mb-0');
+    var footer = $npm('<ul />').addClass('list-inline d-flex justify-content-between g-mb-0');
     var icon = $('<i />').addClass('fa fa-chevron-circle-right g-ml-5');
     var cta =  $('<a />')
         .addClass('btn u-btn-blue u-btn-hover-v2-1 g-font-weight-600 g-color-white')
         .attr('href', job.url)
         .text('Join Today');
+
 
     cta.append(icon);
 

@@ -80,10 +80,6 @@ h1, h2{
 
 /* Buttons */
 
-.btn.u-btn-primary, .btn.u-btn-primary.u-btn-hover-v2-1 {
-  background-color: #96c547;
-}
-
 .btn.u-btn-primary.active, .btn.u-btn-primary:hover, .btn.u-btn-primary.u-btn-hover-v2-1, .btn.u-btn-primary.u-btn-hover-v2-1:hover {
   background-color: #96c547 !important;
   background: #96c547 !important;
@@ -92,7 +88,7 @@ h1, h2{
   border-color: #96c547 !important;
 }
 
-.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover, .btn.u-btn-primary.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover::after {
+.btn.u-btn-primary.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover, .btn.u-btn-primary.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover::after {
   background-color: #aee64e !important;
   background: #aee64e !important;
   overflow: hidden;
