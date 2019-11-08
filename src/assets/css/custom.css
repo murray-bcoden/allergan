@@ -80,18 +80,23 @@ h1, h2{
 
 /* Buttons */
 
-.u-btn-primary{
-  background-color: #96c547;
+.btn.u-btn-primary.active, .btn.u-btn-primary:hover, .btn.u-btn-primary.u-btn-hover-v2-1, .btn.u-btn-primary.u-btn-hover-v2-1:hover {
+  background-color: #96c547 !important;
+  background: #96c547 !important;
+  outline: none !important;
+  overflow: hidden !important;
+  border-color: #96c547 !important;
 }
 
-.u-btn-primary:hover{
-    background-color: #aee64e;
-    outline: none;
-    border-color: #aee64e;
+.btn.u-btn-primary.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover, .btn.u-btn-primary.u-btn-hover-v2-1::after, .btn.u-btn-primary.u-btn-hover-v2-1:hover::after {
+  background-color: #aee64e !important;
+  background: #aee64e !important;
+  overflow: hidden;
 }
+
 
 .u-btn-secondary{
-    background-color: none;
+    background-color: unset;
     color: white;
     border-color: white
 }
@@ -115,4 +120,12 @@ h1, h2{
   background-color:  #2C5697; 
   outline-color: #2C5697;
   border-color: #2C5697
+}
+
+a.btn.btn-lg.u-btn-blue{
+   display: inline-block;
+}
+
+.u-btn-blue.u-btn-hover-icon:hover i.fa.fa-angle-right.g-ml-7.icon-rotate{
+  transform: rotate(90)!important;
 }
