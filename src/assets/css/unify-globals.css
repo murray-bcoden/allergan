@@ -439,32 +439,32 @@
 
 /* Primary Colors */
 .g-bg-primary {
-  background-color: #6BC8C4 !important;
+  background-color:  #96c547 !important;
 }
 
 .g-bg-primary--hover:hover {
-  background-color: #6BC8C4 !important;
+  background-color:  #96c547 !important;
 }
 
 .u-block-hover:hover .g-bg-primary--hover {
-  background-color: #6BC8C4;
+  background-color:  #96c547;
 }
 
 .g-parent:hover .g-bg-primary--parent-hover {
-  background-color: #6BC8C4 !important;
+  background-color:  #96c547 !important;
 }
 
 .g-bg-primary--active.active,
 .active .g-bg-primary--active {
-  background-color: #6BC8C4 !important;
+  background-color:  #96c547 !important;
 }
 
 .g-parent.active .g-bg-primary--parent-active {
-  background-color: #6BC8C4 !important;
+  background-color:  #96c547 !important;
 }
 
 .g-bg-primary--before::before, .g-bg-primary--after::after {
-  background-color: #6BC8C4 !important;
+  background-color:  #96c547 !important;
 }
 
 .g-bg-primary-dark-v1 {
