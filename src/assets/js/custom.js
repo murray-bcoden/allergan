@@ -188,6 +188,7 @@ var column = function(job) {
         .attr('href', job.url)
         .text('Join Today');
 
+
     cta.append(icon);
 
     details.append(separator);
