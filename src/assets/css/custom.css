@@ -100,7 +100,7 @@ h1, h2{
 
 
 .u-btn-secondary{
-    background-color: none;
+    background-color: unset;
     color: white;
     border-color: white
 }
