@@ -3205,7 +3205,7 @@ var column = function(job) {
     var headerLink = $('<a />')
         .addClass('u-link-v5 g-font-weight-600 g-color-blue g-color-blue--hover')
         .attr('href', job.url)
-        .text(job.title);
+        .html(job.title);
 
     headerLink.appendTo(header).appendTo(article);
 
@@ -3232,7 +3232,7 @@ var column = function(job) {
 
     var category = $('<a />')
         .addClass('u-tags-v1 g-font-size-12 g-color-blue g-brd-around g-brd-blue g-bg-blue--hover g-color-white--hover rounded g-py-3 g-px-8')
-        .text(job.category);
+        .html(job.category);
 
     attributes.append(inlineItem.clone().append(category))
         .appendTo(details);
