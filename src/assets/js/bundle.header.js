@@ -501,7 +501,7 @@ appear = (function(){
      */
     settings: {
       rtl: false,
-      jobsApi: 'https://api-allergan.stagingtesting.com'
+      jobsApi: 'http://localhost:3000'
     },
     data: {
       jobs: []
