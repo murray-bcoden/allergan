@@ -491,12 +491,11 @@ appear = (function(){
           });
         }
       }
-
     },
 
     /**
      *
-     *
+     *®
      * @var
      */
     settings: {
@@ -3176,6 +3175,16 @@ $(document).ready(function() {
             } else {
                 _filters[filter[0]] = filter[1];
             }
+        } else if ( filter[0] === 'location' ) {
+            var previous = _filters[filter[0]];
+            $('a[data-filter^="location"]').removeClass('g-font-weight-600');
+
+            // remove previous location filter
+            if (previous === filter[1]) {
+                delete _filters[filter[0]];
+            } else {
+                _filters[filter[0]] = filter[1];
+            }
 
         } else if ( ! _filters.hasOwnProperty(filter[0]) ) {
             _filters[filter[0]] = filter[1];
@@ -3188,7 +3197,11 @@ $(document).ready(function() {
         getRecords(toggleLoader, _currentPage, _limit, _filters);
 
         // toggle active
-        _self.toggleClass('g-blue-active');
+        if ( filter[0] !== 'location' ) {
+            _self.toggleClass('g-blue-active');
+        } else {
+            _self.toggleClass('g-font-weight-600');
+        }
     });
 
     // onload get initial settings
@@ -3205,10 +3218,16 @@ var column = function(job) {
     var headerLink = $('<a />')
         .addClass('u-link-v5 g-font-weight-600 g-color-blue g-color-blue--hover')
         .attr('href', job.url)
-        .html(job.title);
+        .html(job.title.replace(/(\r\n|\n|\r)/gm, ""));
 
     headerLink.appendTo(header).appendTo(article);
 
+    // location
+    var location = $('<div />').addClass('location u-link-v5 g-font-weight-400 g-font-size-10 text-uppercase g-color-gray g-mb-5');
+    location.text(job.location)
+    location.appendTo(article)
+
+    // descriptions
     var intro = $('<p />').html(job.description);
    intro.appendTo(article);
 
