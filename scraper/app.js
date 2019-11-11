@@ -10,9 +10,11 @@ const webhook_url = process.env.SLACK_WEBHOOK
 const slack = require('slack-notify')(webhook_url);
 
 const log = function (error) {
-    slack.alert(error)
+    // slack.alert(error)
     const log = 'error.log'
-    fs.writeFile(log, error)
+    fs.writeFile(log, error, {}, function (event) {
+        // do something here for every event
+    })
 }
 
 // throws error
@@ -35,6 +37,7 @@ const jobs = function (html, results) {
     const description = '.jlr_description'
     const hotFlag = '.hot_flg'
     const newFlag = '.new_flg'
+    const location = '.location'
 
     for (let i=0; i < jobs.children().length; i++) {
         //
@@ -58,11 +61,15 @@ const jobs = function (html, results) {
         // new flag
         const isNew = ($(newFlag, jobs.children()[i]).length > 0)
 
+        // const location
+        const locationText = $(location, jobs.children()[i]).text().trim()
+
         results.push({
             title: linkText,
             url: linkUrl,
             category: categoryText,
             description: descriptionText,
+            location: locationText,
             isNewFlag: isNew,
             isHotFlag: isHot
         })
